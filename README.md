@@ -11,4 +11,5 @@
    3. 我对大模型进行了底层提示词的限制，保证在遇到数据库里没有的知识时不提供额外的回答
    4. 重复入库，每次运行脚本都会 `table.add`，而你的 id 是固定的 `ids_0、ids_1…`，第二次运行再 add 同样的 id，chroma 会直接报 "id 重复"；就算不报错，同一批文档也会存两遍、检索出重复结果。所以每次入库前先清空
    5. 块太小会把一个完整操作步骤拆散、检索拿不到完整上下文；块太大又会塞进无关内容、稀释相关性、浪费 token，块的大小是300，尽量保证覆盖某种东西的全部描述而又不会过长，浪费token。而需要留50 字重叠是让相邻块共享边界，防止信息正好在切分点被切断，导致大模型无法获得完整的参考文献
-8. **演示**：先留位置，后面放截图和演示视频。
+8. **演示**：<img width="2367" height="460" alt="image" src="https://github.com/user-attachments/assets/892f9997-ddb1-45f1-8ad8-83736ec4b762" />
+<img width="1809" height="871" alt="image" src="https://github.com/user-attachments/assets/eab98c5a-5bd4-43f1-8a2e-a40f7d1df180" />
