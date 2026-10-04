@@ -1,8 +1,10 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="sk-cef624d559fd4a6fb2d6774989fbbb91",
+    api_key=os.getenv("DEEPSEEK_API_KEY"),
     base_url="https://api.deepseek.com")
 
 def appText(messages,content):
