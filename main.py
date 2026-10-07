@@ -57,9 +57,9 @@ bge_ef = embedding_functions.SentenceTransformerEmbeddingFunction(
 )
 table = db.get_or_create_collection("text_index_bge2", embedding_function=bge_ef)
 
-# # 先清空旧数据，避免ID重复报错
-# if table.count() > 0:
-#     table.delete(ids=table.get()["ids"])
+# 先清空旧数据：add 对已存在的 id 会静默忽略，不清空会导致新内容写不进去
+if table.count() > 0:
+    table.delete(ids=table.get()["ids"])
 
 table.add(
     documents=chunks,

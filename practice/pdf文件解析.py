@@ -105,7 +105,7 @@ message = [
 response = client.chat.completions.create(
     model = "deepseek-chat",
     messages = message,
-    tream=True
+    stream=True
 )
 aiContent =""
 for i in response:
